@@ -92,7 +92,6 @@
             bearing: 0,
             pitch: 30,
             hash: true,
-            pixelRatio: 1
         });
 
         map.on('load', async () => {
@@ -105,37 +104,37 @@
             }, 100); // Display duration
 
             // Load railroad data and image
-            const image = new Image()
-            console.log('image', image)
-            image.src = '/assets/nj_transit_04.svg'
+            // const image = new Image()
+            // console.log('image', image)
+            // image.src = '/assets/nj_transit_04.svg'
 
-            image.onload = () => {
-                map.addImage('njt-sign', image)
-            }
+            // image.onload = () => {
+            //     map.addImage('njt-sign', image)
+            // }
 
-            map.addSource('nj-stations-svg', {
-                type: 'geojson',
-                data: 'data/railroad/nj_stations.geojson'
-            })
+            // map.addSource('nj-stations-svg', {
+            //     type: 'geojson',
+            //     data: 'data/railroad/nj_stations.geojson'
+            // })
 
-            map.addLayer({
-                id: 'nj-stations-svg',
-                type: 'symbol',
-                source: 'nj-stations',
-                layout: {
-                    'icon-image': 'njt-sign',
-                    'icon-size': ['interpolate', ['exponential', 1.5], ['zoom'], 14, 0.15, 16, 0.25],
-                    'icon-allow-overlap': true,
-                    'icon-ignore-placement': true
-                },
-                paint: {
-                    'icon-opacity': ['interpolate', ['linear'], ['zoom'], 13.75, 0, 14, 1]
-                }
-            })
+            // map.addLayer({
+            //     id: 'nj-stations-svg',
+            //     type: 'symbol',
+            //     source: 'nj-stations',
+            //     layout: {
+            //         'icon-image': 'njt-sign',
+            //         'icon-size': ['interpolate', ['exponential', 1.5], ['zoom'], 14, 0.15, 16, 0.25],
+            //         'icon-allow-overlap': true,
+            //         'icon-ignore-placement': true
+            //     },
+            //     paint: {
+            //         'icon-opacity': ['interpolate', ['linear'], ['zoom'], 13.75, 0, 14, 1]
+            //     }
+            // })
 
-            image.onerror = () => {
-                console.error('Failed to load njt-sign.svg')
-            }
+            // image.onerror = () => {
+            //     console.error('Failed to load njt-sign.svg')
+            // }
 
             // Load location data
             const pointsData = {
